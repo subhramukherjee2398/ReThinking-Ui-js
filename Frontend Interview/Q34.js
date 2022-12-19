@@ -3,7 +3,6 @@
 const check = (arr) => {
   return arr.reduce((acc, val, index) => {
     if (val !== val) {
-      // or use Number.isNumber or isNaN()
       acc.push(index);
     }
     return acc;
