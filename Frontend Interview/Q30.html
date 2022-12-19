@@ -1,0 +1,27 @@
+<!--Create dynamic element-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Create dynamic element</title>
+  </head>
+  <body>
+    <button>Add new Button</button>
+    <script>
+      const btn = document.querySelector("button");
+      let c = 1;
+      btn.addEventListener("click", () => add("button"));
+
+      function add(type) {
+        let element = document.createElement("input");
+        element.type = type;
+        element.value = `New Button ${c}`;
+        document.body.append(element);
+        c++;
+      }
+    </script>
+  </body>
+</html>
