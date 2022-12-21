@@ -14,7 +14,7 @@ const nums = [1, 2, 3, 4]
 let [y] = nums;
 let [...x] = nums;
 console.log(y)
-console.log(x)
+console.log(x) // [1, 2, 3, 4]
 
 
 // ex: 3
@@ -30,8 +30,8 @@ let obj = {
     str: 'o'
 }
 
-console.log(call())
-console.log(call.call(obj))
+console.log(call()) // g
+console.log(call.call(obj)) // o
 
 
 //ex : 4
