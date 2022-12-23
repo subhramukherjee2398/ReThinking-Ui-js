@@ -8,8 +8,9 @@ function add(a, b) {
 
 const popNameFromArgs = (function_name, arguments) => {
   let popKey = [];
-  popkey = popKey.concat(function_name.name, args); // ['add',10,20]
-  popKey.join("|"); // "add|10|20"
+  popKey = popKey.concat(function_name.name, arguments); // ['add',10,20]
+  return popKey.join("|");
+  // "add|10|20"
 };
 
 // function  decide call or return the cache
@@ -23,15 +24,24 @@ const Memoization = (additionFunction) => {
     const popName = popNameFromArgs(additionFunction, args);
     if (!memoryCache[popName]) {
       // not available call the function and save in memory
-      memoryCache[popName] =   add(...args);
+      memoryCache[popName] = additionFunction(...args);
     } else {
       console.log("return from cache");
     }
+    return memoryCache[popName];
   };
 };
 
-add(10, 20); // 30
+const memoRization = Memoization(add);
+
+console.log(memoRization(10, 20));
+console.log(memoRization(100, 200));
+
+console.log(memoRization(10, 20));
+console.log(memoRization(100,200))
+
+//add(10, 20); // 30
 
 // after some line of code
 
-add(10, 20); // => implement memorization so that it can take 30 from cache
+//add(10, 20); // => implement memorization so that it can take 30 from cache
